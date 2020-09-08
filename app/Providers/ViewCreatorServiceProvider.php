@@ -1,15 +1,14 @@
 <?php
-
 namespace App\Providers;
 
+use App\Http\ViewCreators as V;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use App\Http\ViewCreators as V;
 
 class ViewCreatorServiceProvider extends ServiceProvider
 {
     /**
-     * 全アプリケーションサービスの初期起動処理
+     * 全アプリケーションサービスの初期起動処理.
      *
      * @return void
      */
@@ -19,12 +18,11 @@ class ViewCreatorServiceProvider extends ServiceProvider
     }
 
     /**
-     * コンテナ結合の登録
+     * コンテナ結合の登録.
      *
      * @return void
      */
     public function register()
     {
-        //
     }
 }

@@ -161,7 +161,7 @@ return [
             'file'  => 'files',
         ],
 
-        'validation' => 'file|image|mimes:jpeg,png,jpg,gif,svg|max:1024'
+        'validation' => 'file|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
     ],
 
     /*

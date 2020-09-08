@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Repositories\Base;
 
 interface BaseRepositoryInterface
@@ -12,11 +11,11 @@ interface BaseRepositoryInterface
 
     public function delete($model);
 
-    public function create(Array $input);
+    public function create(array $input);
 
-    public function firstOrCreate(Array $input);
+    public function firstOrCreate(array $input);
 
-    public function update($model, Array $input);
+    public function update($model, array $input);
 
     public function getIdOptions();
 }

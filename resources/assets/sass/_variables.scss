@@ -1,5 +1,5 @@
 // Body
-// $body-bg: #f8fafc;
+$body-bg: #fff;
 
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
@@ -7,25 +7,38 @@ $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
 
-
 /* ============================================================================
  * color code
  * ========================================================================= */
+$c-point: #C0DFF0;
+$c-point-light: #BF4040;
+
 $facebook_color: #3b5998;
+$facebook_color_hover: #3B61B4;
+$twitter_color: #1da1f2;
+$twitter_color_hover: #1a91da;
+$line_color: #00c300;
+$line_color_hover: #00E000;
 
 // カラー
-$c-border: #d8d8d8;
-$c-buttonHover: #e8e7f5;
-$c-buttonActive: #cbcfeb;
+$c-border-light: #ebebeb;
+// $c-buttonHover: #e8e7f5;
+// $c-buttonActive: #cbcfeb;
 $c-white: #fff;
 $c-yellow: #FFD20B;
 $c-gray: #DEDEDE;
 
-// ----------------------------------------------------------------------------
-// フォントファミリー
-// ----------------------------------------------------------------------------
+// $blue: #3490dc;
+// $indigo: #6574cd;
+// $purple: #9561e2;
+// $pink: #f66d9b;
+// $red: #e3342f;
+// $orange: #f6993f;
+// $yellow: #ffed4a;
+// $green: #38c172;
+// $teal: #4dc0b5;
+// $cyan: #6cb2eb;
 
-// common
 $c-text-normal: #504643;
 $c-text-headliner: #000000;
 $c-text-link-normal: #293162;
@@ -58,8 +71,3 @@ $c-btn-primary-press: #0a02e8;
 $c-btn-negative-normal: #505050;
 $c-btn-negative-hover: #747474;
 $c-btn-negative-press: #232323;
-
-
-// labels
-$c-tag: #796bae;
-

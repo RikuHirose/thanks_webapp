@@ -1,13 +1,8 @@
 <?php
 namespace App\Helpers;
 
-use SEOMeta;
-use OpenGraph;
-use Twitter;
-
 class SeoHelper
 {
-
     public function __construct(
     ) {
     }
@@ -27,7 +22,7 @@ class SeoHelper
     public function setUserShowSeo($model)
     {
         $appName      = config('app.name');
-        $title        = $model->name. '  |  ' .trans('seo.users.show.title');
+        $title        = $model->name.'  |  '.trans('seo.users.show.title');
         $description  = $model->description;
         $keyWords     = trans('seo.index.keywords');
 

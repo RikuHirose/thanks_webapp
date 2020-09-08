@@ -1,12 +1,11 @@
 <?php
-
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
 /**
  * https://qiita.com/hironeko/items/1a2df88f7857d02a38a1
- * CreateServiceFileCommand class
+ * CreateServiceFileCommand class.
  */
 class CreateServiceFileCommand extends Command
 {
@@ -82,10 +81,11 @@ class CreateServiceFileCommand extends Command
             $this->createDirectory();
         }
 
-        $this->ServiceFileName = self::SERVICES_PATH . $this->dirName . '/' . $this->fileName . 'Service.php';
-        $this->interfaceFileName = self::SERVICES_PATH . $this->dirName . '/' . $this->fileName . 'ServiceInterface.php';
+        $this->ServiceFileName   = self::SERVICES_PATH.$this->dirName.'/'.$this->fileName.'Service.php';
+        $this->interfaceFileName = self::SERVICES_PATH.$this->dirName.'/'.$this->fileName.'ServiceInterface.php';
         if ($this->isExistFiles()) {
             $this->error('already exist');
+
             return;
         }
 
@@ -96,34 +96,37 @@ class CreateServiceFileCommand extends Command
         $this->comment('Add the following route to app/Providers/ServiceServiceProvider.php:');
         $this->line('');
         $this->info("    \$this->app->bind(
-            \\App\\Services\\$this->dirName\\$this->dirName". "ServiceInterface::class,
-            \\App\\Services\\$this->dirName\\$this->dirName". "Service::class
-        );");
+            \\App\\Services\\$this->dirName\\$this->dirName"."ServiceInterface::class,
+            \\App\\Services\\$this->dirName\\$this->dirName".'Service::class
+        );');
         $this->line('');
     }
 
     /**
-     * Serviceのfileを作成する
+     * Serviceのfileを作成する.
+     *
      * @return void
      */
     private function creatServiceFile(): void
     {
-        $content = "<?php\n\nnamespace App\\Services\\$this->dirName;\n\nclass $this->fileName" . "Service implements $this->fileName" . "ServiceInterface\n{\n}\n";
+        $content = "<?php\n\nnamespace App\\Services\\$this->dirName;\n\nclass $this->fileName"."Service implements $this->fileName"."ServiceInterface\n{\n}\n";
         file_put_contents($this->ServiceFileName, $content);
     }
 
     /**
-     * Interfaceのfileを作成する
+     * Interfaceのfileを作成する.
+     *
      * @return void
      */
     private function createInterFaceFile(): void
     {
-        $content = "<?php\n\nnamespace App\\Services\\$this->dirName;\n\ninterface $this->fileName" . "ServiceInterface\n{\n}\n";
+        $content = "<?php\n\nnamespace App\\Services\\$this->dirName;\n\ninterface $this->fileName"."ServiceInterface\n{\n}\n";
         file_put_contents($this->interfaceFileName, $content);
     }
 
     /**
-     * 同名fileの確認
+     * 同名fileの確認.
+     *
      * @return bool
      */
     private function isExistFiles(): bool
@@ -132,20 +135,22 @@ class CreateServiceFileCommand extends Command
     }
 
     /**
-     * directoryの存在確認
+     * directoryの存在確認.
+     *
      * @return bool
      */
     private function isExistDirectory(): bool
     {
-        return file_exists(self::SERVICES_PATH . $this->dirName);
+        return file_exists(self::SERVICES_PATH.$this->dirName);
     }
 
     /**
-     * 指定名でdirectoryの作成
+     * 指定名でdirectoryの作成.
+     *
      * @return void
      */
     private function createDirectory(): void
     {
-        mkdir(self::SERVICES_PATH . $this->dirName, 0755, true);
+        mkdir(self::SERVICES_PATH.$this->dirName, 0755, true);
     }
 }

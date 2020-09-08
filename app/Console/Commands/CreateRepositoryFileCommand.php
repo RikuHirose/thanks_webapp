@@ -1,12 +1,11 @@
 <?php
-
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
 /**
  * https://qiita.com/hironeko/items/1a2df88f7857d02a38a1
- * CreateRepositoryFileCommand class
+ * CreateRepositoryFileCommand class.
  */
 class CreateRepositoryFileCommand extends Command
 {
@@ -82,10 +81,11 @@ class CreateRepositoryFileCommand extends Command
             $this->createDirectory();
         }
 
-        $this->repositoryFileName = self::REPOSITORIES_PATH . $this->dirName . '/' . $this->fileName . 'Repository.php';
-        $this->interfaceFileName = self::REPOSITORIES_PATH . $this->dirName . '/' . $this->fileName . 'RepositoryInterface.php';
+        $this->repositoryFileName = self::REPOSITORIES_PATH.$this->dirName.'/'.$this->fileName.'Repository.php';
+        $this->interfaceFileName  = self::REPOSITORIES_PATH.$this->dirName.'/'.$this->fileName.'RepositoryInterface.php';
         if ($this->isExistFiles()) {
             $this->error('already exist');
+
             return;
         }
 
@@ -96,34 +96,37 @@ class CreateRepositoryFileCommand extends Command
         $this->comment('Add the following route to app/Providers/RepositoryServiceProvider.php:');
         $this->line('');
         $this->info("    \$this->app->bind(
-            \\App\\Repositories\\$this->dirName\\$this->dirName". "RepositoryInterface::class,
-            \\App\\Repositories\\$this->dirName\\$this->dirName". "Repository::class
-        );");
+            \\App\\Repositories\\$this->dirName\\$this->dirName"."RepositoryInterface::class,
+            \\App\\Repositories\\$this->dirName\\$this->dirName".'Repository::class
+        );');
         $this->line('');
     }
 
     /**
-     * Repositoryのfileを作成する
+     * Repositoryのfileを作成する.
+     *
      * @return void
      */
     private function createRepositoryFile(): void
     {
-        $content = "<?php\n\nnamespace App\\Repositories\\$this->dirName;\n\nUse App\\Models\\$this->dirName;\nuse App\Repositories\Base\BaseRepository;\n\nclass $this->fileName" . "Repository extends BaseRepository implements $this->fileName" . "RepositoryInterface\n{\n\t\tpublic function getBlankModel()\n\t\t{\n\t\t\treturn new $this->fileName();\n\t\t}\n}\n";
+        $content = "<?php\n\nnamespace App\\Repositories\\$this->dirName;\n\nUse App\\Models\\$this->dirName;\nuse App\Repositories\Base\BaseRepository;\n\nclass $this->fileName"."Repository extends BaseRepository implements $this->fileName"."RepositoryInterface\n{\n\t\tpublic function getBlankModel()\n\t\t{\n\t\t\treturn new $this->fileName();\n\t\t}\n}\n";
         file_put_contents($this->repositoryFileName, $content);
     }
 
     /**
-     * Interfaceのfileを作成する
+     * Interfaceのfileを作成する.
+     *
      * @return void
      */
     private function createInterFaceFile(): void
     {
-        $content = "<?php\n\nnamespace App\\Repositories\\$this->dirName;\n\nuse App\Repositories\Base\BaseRepositoryInterface;\n\ninterface $this->fileName" . "RepositoryInterface extends BaseRepositoryInterface\n{\n\t\tpublic function getBlankModel();\n}\n";
+        $content = "<?php\n\nnamespace App\\Repositories\\$this->dirName;\n\nuse App\Repositories\Base\BaseRepositoryInterface;\n\ninterface $this->fileName"."RepositoryInterface extends BaseRepositoryInterface\n{\n\t\tpublic function getBlankModel();\n}\n";
         file_put_contents($this->interfaceFileName, $content);
     }
 
     /**
-     * 同名fileの確認
+     * 同名fileの確認.
+     *
      * @return bool
      */
     private function isExistFiles(): bool
@@ -132,20 +135,22 @@ class CreateRepositoryFileCommand extends Command
     }
 
     /**
-     * directoryの存在確認
+     * directoryの存在確認.
+     *
      * @return bool
      */
     private function isExistDirectory(): bool
     {
-        return file_exists(self::REPOSITORIES_PATH . $this->dirName);
+        return file_exists(self::REPOSITORIES_PATH.$this->dirName);
     }
 
     /**
-     * 指定名でdirectoryの作成
+     * 指定名でdirectoryの作成.
+     *
      * @return void
      */
     private function createDirectory(): void
     {
-        mkdir(self::REPOSITORIES_PATH . $this->dirName, 0755, true);
+        mkdir(self::REPOSITORIES_PATH.$this->dirName, 0755, true);
     }
 }

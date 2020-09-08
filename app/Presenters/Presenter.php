@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Presenters;
 
 use Illuminate\Database\Eloquent\Model;

@@ -10914,8 +10914,95 @@ input[type=button]::focus {
  * ========================================================================= */
 
 /* ============================================================================
- * Layout
+ * structure
  * ========================================================================= */
+
+.s-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ebebeb;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.s-footer a {
+  text-decoration: none;
+}
+
+.s-footer span {
+  text-align: center;
+}
+
+.s-footer p {
+  font-size: 8px;
+}
+
+.s-footer i {
+  font-size: 20px;
+}
+
+.s-header {
+  position: relative;
+  width: 100%;
+  min-width: 960px;
+  background: #fff;
+  box-shadow: 0 0 4px rgba(34, 34, 34, 0.2);
+  border-bottom: 2px solid #d5d5d5;
+}
+
+.s-header__container {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 960px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.s-header__content--right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.s-header-logo__sizing {
+  height: 35px;
+  width: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.s-header-list--link {
+  color: #000000;
+  text-decoration: none;
+}
+
+.s-header-list__avatar {
+  border-radius: 30px;
+  width: 30px;
+  height: 30px;
+}
+
+.s-header-list__dropdown__nav-lists li {
+  display: block;
+  padding: 6px 15px;
+}
+
+.s-header-list__dropdown__nav-lists li a {
+  color: #4a4a4b;
+}
+
+.s-header .m-hamburger .bm-burger-button {
+  top: 16px;
+}
 
 /* ============================================================================
  * components
@@ -11044,6 +11131,23 @@ input[type=button]::focus {
 .m-btnL[btn-type=facebook]:hover {
   border-color: #3b5998;
   background: #3b5998;
+}
+
+.m-btn[btn-type=twitter],
+.m-btnS[btn-type=twitter],
+.m-btnM[btn-type=twitter],
+.m-btnL[btn-type=twitter] {
+  border-color: #1da1f2;
+  color: #fff;
+  background: #1da1f2;
+}
+
+.m-btn[btn-type=twitter]:hover,
+.m-btnS[btn-type=twitter]:hover,
+.m-btnM[btn-type=twitter]:hover,
+.m-btnL[btn-type=twitter]:hover {
+  border-color: #1da1f2;
+  background: #1da1f2;
 }
 
 .m-btn[disabled],
@@ -11219,6 +11323,12 @@ a.m-btn {
   color: #DEDEDE;
 }
 
+.fa-heart::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\F004";
+  font-weight: 600;
+}
+
 .fa-yen::before {
   font-family: "Font Awesome 5 Free";
   content: "\F157";
@@ -11267,7 +11377,317 @@ a.m-btn {
   font-weight: 600;
 }
 
+.fa-twitter::before {
+  font-family: "Font Awesome 5 Brands";
+  content: "\F099";
+  font-weight: 600;
+}
+
+.fa-facebook::before {
+  font-family: "Font Awesome 5 Brands";
+  content: "\F39E";
+  font-weight: 600;
+}
+
+.fa-line::before {
+  font-family: "Font Awesome 5 Brands";
+  content: "\F3C0";
+  font-weight: 600;
+}
+
+.fa-copy::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\F0C5";
+  font-weight: 600;
+}
+
+.fa-lightbulb::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\F0EB";
+  font-weight: 600;
+}
+
+.fa-thumbs-up::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\F164";
+  font-weight: 400;
+}
+
+.fa-home::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\F015";
+  font-weight: 600;
+}
+
+.fa-plus::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\F067";
+  font-weight: 600;
+}
+
+.fa-user::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\F007";
+  font-weight: 600;
+}
+
 /* ============================================================================
 * pages
 * ========================================================================= */
+
+/* ----------------------------------------------------------------------------
+ * page  index
+ * ------------------------------------------------------------------------- */
+
+.p-index__category {
+  margin: 20px 0;
+}
+
+.p-index__image {
+  height: 400px;
+  position: relative;
+  background-image: url(https://res.cloudinary.com/frip/image/upload/c_scale,h_400,q_100/v1579348125/frip/images/main_img_pc.jpg);
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  padding-top: 136px;
+  padding-bottom: 40px;
+  width: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.p-index--copy {
+  position: relative;
+  color: #fff;
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  text-align: center;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+  margin-bottom: 48px;
+}
+
+.p-index__category__image {
+  display: block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 200px;
+}
+
+.p-index__category__image:before {
+  display: block;
+  content: "";
+  padding-top: 100%;
+}
+
+.p-index__category__images--wrap {
+  line-height: 0;
+  display: flex;
+  display: -webkit-flex;
+  width: 100%;
+}
+
+.p-index__category__images--wrap ul {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.p-index__category__images--wrap li {
+  display: block;
+  width: 33.333%;
+  float: left;
+  padding: 1px;
+  position: relative;
+}
+
+.p-index__category__images--link {
+  width: 100%;
+}
+
+.p-index__category__images--link img {
+  width: 100%;
+  height: 380px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+
+.p-index__category__images--link img:hover {
+  -webkit-filter: brightness(0.8);
+  -moz-filter: brightness(0.8);
+  -o-filter: brightness(0.8);
+  -ms-filter: brightness(0.8);
+  filter: brightness(0.8);
+  transform: scale(1.05);
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.p-index__category__images--link .category__name {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 4px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 8px;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.24);
+  font-weight: 700;
+  font-size: 16px;
+  font-family: YakuHanJP Black, Noto Sans Japanese Black;
+}
+
+/* ----------------------------------------------------------------------------
+ * page  index
+ * ------------------------------------------------------------------------- */
+
+@media screen and (max-width: 640px) {
+  .p-index--new,
+  .p-index--spot--new {
+    margin-bottom: 16px;
+  }
+
+  .p-index--header {
+    position: relative;
+  }
+
+  .p-index--header__primary {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+    padding: 16px 16px 8px 16px;
+    width: 100%;
+    background: #ffffff;
+    color: #555555;
+    font-weight: 600;
+  }
+
+  .p-index--header__medium-text {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 0.5rem;
+    padding: 0 16px 0 16px;
+    width: 100%;
+    background: #ffffff;
+    color: #555555;
+    font-weight: 600;
+  }
+
+  .p-index__image {
+    height: 450px;
+    position: relative;
+    background-image: url(https://res.cloudinary.com/frip/image/upload/c_scale,h_1000,q_100/v1579349266/frip/images/main_img_sp.jpg);
+    -o-object-fit: cover;
+       object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    padding-top: 96px;
+    padding-bottom: 40px;
+    width: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .p-index--copy {
+    position: relative;
+    padding-top: 18px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    margin-bottom: 48px;
+  }
+
+  .p-index__getting-started {
+    padding-top: 18px;
+  }
+
+  .p-index__getting-started a:link {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  .p-index__getting-started__text {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+ * auth login
+ * ------------------------------------------------------------------------- */
+
+.auth-login a,
+.auth-register a,
+.auth-reset-password a {
+  color: #BF4040;
+}
+
+.auth-login .gray,
+.auth-register .gray,
+.auth-reset-password .gray {
+  color: #504643;
+}
+
+.auth-login label,
+.auth-register label,
+.auth-reset-password label {
+  margin-left: 16px;
+  font-size: 14px;
+}
+
+.auth-login input,
+.auth-register input,
+.auth-reset-password input {
+  border-radius: 8rem !important;
+  height: 42px;
+}
+
+.auth-login input::-webkit-input-placeholder,
+.auth-register input::-webkit-input-placeholder,
+.auth-reset-password input::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+.auth-login input::-moz-placeholder,
+.auth-register input::-moz-placeholder,
+.auth-reset-password input::-moz-placeholder {
+  font-size: 14px;
+}
+
+.auth-login input:-ms-input-placeholder,
+.auth-register input:-ms-input-placeholder,
+.auth-reset-password input:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.auth-login input::-ms-input-placeholder,
+.auth-register input::-ms-input-placeholder,
+.auth-reset-password input::-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.auth-login input::placeholder,
+.auth-register input::placeholder,
+.auth-reset-password input::placeholder {
+  font-size: 14px;
+}
+
+.auth-login .invalid-feedback,
+.auth-register .invalid-feedback,
+.auth-reset-password .invalid-feedback {
+  font-size: 8px;
+  color: #a10000;
+}
 

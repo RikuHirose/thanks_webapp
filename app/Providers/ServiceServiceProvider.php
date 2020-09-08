@@ -26,5 +26,10 @@ class ServiceServiceProvider extends ServiceProvider
             \App\Services\User\UserServiceInterface::class,
             \App\Services\User\UserService::class
         );
+
+        $this->app->bind(
+            \App\Services\SocialAccount\SocialAccountServiceInterface::class,
+            \App\Services\SocialAccount\SocialAccountService::class
+        );
     }
 }

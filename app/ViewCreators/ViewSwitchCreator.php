@@ -1,18 +1,13 @@
 <?php
-
 namespace App\Http\ViewCreators;
 
-use Illuminate\View\View;
 use Illuminate\Support\Facades\View as V;
+use Illuminate\View\View;
 use Illuminate\View\ViewName;
-use Illuminate\View\FileViewFinder;
 use Jenssegers\Agent\Agent;
 
-
 /**
- * スマホのビューに自動で切り替える
- *
- * @package App\Http\ViewCreators
+ * スマホのビューに自動で切り替える.
  */
 class ViewSwitchCreator
 {
@@ -24,23 +19,24 @@ class ViewSwitchCreator
     private $excluded_folder = ['layouts'];
 
     /**
-     * ビュー名の接尾語
+     * ビュー名の接尾語.
      *
      * @var string
      */
     private $view_name_suffix = '_sp';
 
     /**
-     * 新しいプロフィールコンポーザの生成
+     * 新しいプロフィールコンポーザの生成.
      */
     public function __construct()
     {
     }
 
     /**
-     * データをビューと結合
+     * データをビューと結合.
      *
-     * @param  View  $view
+     * @param View $view
+     *
      * @return void
      */
     public function create(View $view)
