@@ -16,6 +16,8 @@ class CreateMessagesTable extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
 
+            $table->uuid('uuid')->unique();
+
             $table->unsignedBigInteger('user_id')->index()->comment('messageしたuser id');
 
             $table->longtext('description');

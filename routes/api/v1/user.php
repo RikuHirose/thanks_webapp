@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
+Route::group(['prefix' => 'likes', 'as' => 'likes.'], function () {
+    Route::post('/', 'LikeController@store')->name('store');
+    Route::delete('/{id}', 'LikeController@destroy')->name('destroy');
+});
