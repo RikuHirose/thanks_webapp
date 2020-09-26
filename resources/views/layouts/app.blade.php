@@ -40,8 +40,6 @@
     </main>
 </div>
 
-@include('layouts._footer')
-
 @include('layouts._scripts')
 </body>
 </html>

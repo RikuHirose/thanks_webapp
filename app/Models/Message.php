@@ -2,28 +2,24 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Message extends Model
 {
+    use SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'from_user_id',
-        'to_user_id',
+        'user_id',
         'description',
     ];
 
     // relation
-    public function fromUser()
+    public function user()
     {
-        return $this->belongsTo('App\User', 'from_user_id', 'id');
-    }
-
-    public function toUser()
-    {
-        return $this->belongsTo('App\User', 'to_user_id', 'id');
+        return $this->belongsTo('App\User', 'user_id', 'id');
     }
 }

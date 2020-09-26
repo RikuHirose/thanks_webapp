@@ -16,15 +16,14 @@ class CreateMessagesTable extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->unsignedBigInteger('from_user_id')->index()->comment('messageしたuser id');
-            $table->unsignedBigInteger('to_user_id')->index()->comment('messageされたuser id');
+            $table->unsignedBigInteger('user_id')->index()->comment('messageしたuser id');
 
             $table->longtext('description');
 
-            $table->foreign('from_user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('to_user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
