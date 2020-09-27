@@ -1,6 +1,7 @@
 <?php
 namespace App\Models;
 
+use App\Mail\Auth\ResetPasswordMailable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -39,4 +40,13 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Override the mail body for reset password notification mail.
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $resetPasswordMailableContent = new ResetPasswordMailable($token, $this->name, $this->email);
+        \MailHelper::send($this->email, $resetPasswordMailableContent);
+    }
 }
