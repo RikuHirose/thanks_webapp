@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\Message\MessageRepositoryInterface;
+use App\Services\Message\MessageServiceInterface;
 use Illuminate\Http\Request;
 
 class MessageController extends Controller
@@ -13,9 +13,9 @@ class MessageController extends Controller
      * @return void
      */
     public function __construct(
-        MessageRepositoryInterface $messageRepository
+        MessageServiceInterface $messageService
     ) {
-        $this->messageRepository = $messageRepository;
+        $this->messageService = $messageService;
     }
 
     public function show()
@@ -26,25 +26,10 @@ class MessageController extends Controller
     {
     }
 
+    // FIXME vvalidation
     public function store(Request $request)
     {
-        $input = $request->only($this->messageRepository->getBlankModel()->getFillable());
-
-        $today = Carbon::today('Asia/Tokyo');
-        $today->timezone('UTC');
-
-        $tomorrow = Carbon::tomorrow('Asia/Tokyo');
-        $tomorrow->timezone('UTC');
-
-        $is = Message::where('user_id', \Auth::user()->id)
-        ->whereBetween('created_at', [$today->toDateTimeString(), $tomorrow->toDateTimeString()])
-        ->exists();
-
-        if (!isset($input['uuid'])) {
-            \Arr::set($input, 'uuid', \Illuminate\Support\Str::uuid());
-        }
-
-        $message = $this->messageRepository->create($input);
+        $this->messageService->userStoreMessage(\Auth::user()->id, $request->all());
 
         return redirect('/dashboard')->with([
             'toast' => [
